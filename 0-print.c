@@ -15,6 +15,8 @@ int _printf(const char *format, ...)
 	const char *fmt;
 	char *str;
 	char ch;
+	int num;
+	int numreverse;
 
 	count = 0;
 
@@ -53,6 +55,34 @@ int _printf(const char *format, ...)
 			case '%':
 				_putchar('%');
 				count++;
+				break;
+			case 'd':
+			case 'i':
+				num = va_arg(args, int);
+				if (num == 0)
+				{
+					_putchar('0');
+				}
+				else
+				{
+					if (num < 0)
+					{
+						_putchar('-');
+						num = -num;
+					}
+					numreverse = 0;
+					while (num > 0)
+					{
+						numreverse = numreverse * 10 + num % 10;
+						num /= 10;
+					}
+					while (numreverse > 0)
+					{
+						_putchar(numreverse % 10 + '0');
+						numreverse /= 10;
+						count++;
+					}
+				}
 				break;
 			default:
 				break;
