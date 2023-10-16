@@ -1,10 +1,50 @@
 #include "main.h"
 #include <stdarg.h>
+#include <stdio.h>
+
+/**
+ * _int_to_hex - converts integer to hexadecimal
+ * @num1: unsigned integer to be converted
+ * @upper: 0 for lowercase, 1 for uppercase
+ *
+ * Return: Nothing.
+ */
+void _int_to_hex(unsigned int num1, int upper)
+{
+	int rem;
+
+	rem = 0;
+
+	if (num1 == 0) return;
+	_int_to_hex(num1 / 16, upper);
+	rem = num1 % 16;
+	if (rem < 10)
+	{
+		_putchar(rem + '0');
+	}
+	else
+	{
+		_putchar(rem - 10 + (upper ? 'A' : 'a'));
+	}
+}
+
+/**
+ * _int_to_octal - converts integer to binary
+ * @num1: unsigned integer to be converted
+ *
+ * Return: Nothing.
+ */
+void _int_to_octal(unsigned int num1)
+{
+	if (num1 == 0) return;
+	_int_to_octal(num1 / 8);
+	_putchar((num1 % 8) + '0');
+}
 
 /**
  * _int_to_bin - converts unsigned integer to binary
  * and prints on stdout
- * @num1: unsigned int to be converted
+ * @num1: unsigned integer to be converted
  *
  * Return: Nothing.
  */
@@ -22,7 +62,7 @@ void _int_to_bin(unsigned int num1)
  * @format: format to print
  * @...: arguments
  *
- * Return: number of characters printed
+ * Return: Number of characters printed
  */
 int _printf(const char *format, ...)
 {
@@ -34,6 +74,7 @@ int _printf(const char *format, ...)
 	int num;
 	int numreverse;
 	unsigned int num1;
+	unsigned int numreverse1;
 
 	count = 0;
 
@@ -90,13 +131,40 @@ int _printf(const char *format, ...)
 					numreverse = 0;
 					while (num > 0)
 					{
-						numreverse = numreverse * 10 + num % 10;
+						numreverse = numreverse * 10 +
+						       	num % 10;
 						num /= 10;
 					}
 					while (numreverse > 0)
 					{
-						_putchar(numreverse % 10 + '0');
+						_putchar(numreverse % 10 +
+							       	'0');
 						numreverse /= 10;
+						count++;
+					}
+				}
+				break;
+			case 'u':
+				num1 = va_arg(args, unsigned int);
+				if (num1 == 0)
+				{
+					_putchar('0');
+					count++;
+				}
+				else
+				{
+					numreverse1 = 0;
+					while (num1 > 0)
+					{
+						numreverse1 = numreverse1 *
+						       	10 + num1 % 10;
+						num1 /= 10;
+					}
+					while (numreverse1 > 0)
+					{
+						_putchar(numreverse1 % 10 +
+								'0');
+						numreverse1 /= 10;
 						count++;
 					}
 				}
@@ -106,7 +174,38 @@ int _printf(const char *format, ...)
 				_int_to_bin(num1);
 				count++;
 				break;
+			case 'o':
+				num1 = va_arg(args, unsigned int);
+				if (num1 == 0)
+				{
+					_putchar('0');
+					count++;
+				}
+				_int_to_octal(num1);
+				count++;
+				break;
+			case 'x':
+				num1 = va_arg(args, unsigned int);
+				if (num1 == 0)
+				{
+					_putchar('0');
+					count++;
+				}
+				_int_to_hex(num1, 0);
+				count++;
+				break;
+			case 'X':
+				num1 = va_arg(args, unsigned int);
+				if (num1 == 0)
+				{
+					_putchar('0');
+				}
+				_int_to_hex(num1, 1);
+				count++;
+				break;
 			default:
+				_putchar(*format);
+				count++;
 				break;
 		}
 	}
