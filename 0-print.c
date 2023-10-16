@@ -2,6 +2,22 @@
 #include <stdarg.h>
 
 /**
+ * _int_to_bin - converts unsigned integer to binary
+ * and prints on stdout
+ * @num1: unsigned int to be converted
+ *
+ * Return: Nothing.
+ */
+void _int_to_bin(unsigned int num1)
+{
+	if (num1 > 1)
+	{
+		_int_to_bin(num1 / 2);
+	}
+	_putchar((num1 % 2) + '0');
+}
+
+/**
  * _printf - produces output according to a format
  * @format: format to print
  * @...: arguments
@@ -17,6 +33,7 @@ int _printf(const char *format, ...)
 	char ch;
 	int num;
 	int numreverse;
+	unsigned int num1;
 
 	count = 0;
 
@@ -83,6 +100,11 @@ int _printf(const char *format, ...)
 						count++;
 					}
 				}
+				break;
+			case 'b':
+				num1 = va_arg(args, unsigned int);
+				_int_to_bin(num1);
+				count++;
 				break;
 			default:
 				break;
