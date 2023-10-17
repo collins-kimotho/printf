@@ -16,6 +16,10 @@ int _printf_percent(void);
 int _printf_decimal(va_list args);
 int _printf_integer(va_list args);
 int _printf_binary(va_list args);
+int _printf_unsigned(va_list args);
+int _printf_octal(va_list args);
+int _printf_lower_hex(va_list args);
+int _printf_upper_hex(va_list args);
 
 /**
  * struct format - match the conversion specifiers for printf
