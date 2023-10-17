@@ -15,6 +15,8 @@ int _strlen(char *s);
 int _printf_percent(void);
 int _printf_decimal(va_list args);
 int _printf_integer(va_list args);
+int _printf_binary(va_list args);
+
 /**
  * struct format - match the conversion specifiers for printf
  * @id: type char pointer of the specifier i.e (l, h) for (d, i, u, o, x, X)
