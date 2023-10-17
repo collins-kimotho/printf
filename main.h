@@ -1,10 +1,13 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include<stdarg.h>
+#include<unistd.h>
+
 int _printf(const char *format, ...);
 int _putchar(char c);
-void _int_to_bin(unsigned int);
-void _int_to_octal(unsigned int);
-void _int_to_hex(unsigned int, int upper);
+int _printf_c(int c);
+int _printf_s(char *s);
+int _printf_percent(void);
 
 #endif
