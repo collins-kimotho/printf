@@ -11,7 +11,8 @@ int _printf(const char * const format, ...)
 		{"%%", _printf_percent}, {"%d", _printf_decimal},
 		{"%i", _printf_integer}, {"%b", _printf_binary},
 		{"%u", _printf_unsigned}, {"%o", _printf_octal},
-		{"%x", _printf_lower_hex}, {"%X", _printf_upper_hex}
+		{"%x", _printf_lower_hex}, {"%X", _printf_upper_hex},
+		{"%S", printf_S)
 	};
 
 	va_list args;
