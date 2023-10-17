@@ -12,7 +12,7 @@ int _putchar(char c);
 int _printf_char(va_list args);
 int _printf_string(va_list args);
 int _strlen(char *s);
-int _printf_percent();
+int _printf_percent(void);
 
 /**
  * struct format - match the conversion specifiers for printf
