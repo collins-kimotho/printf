@@ -8,7 +8,7 @@
  */
 int _printf_another_lower_hex(unsigned long int n)
 {
-	long int i, counter;
+	/* long int i, counter;
 	long int *array;
 	unsigned long int temp = n;
 
@@ -35,5 +35,25 @@ int _printf_another_lower_hex(unsigned long int n)
 		_putchar(array[i] + '0');
 	}
 	free(array);
+	return (counter); */
+
+	int counter;
+	unsigned long int num;
+	char c;
+
+	counter = 0;
+	num = n;
+
+	if (num < 16)
+	{
+		c = num < 10 ? '0' + n : 'a' + num - 10;
+		_putchar(c);
+		counter++;
+	}
+	else
+	{
+		_printf_another_lower_hex(num / 16);
+		_printf_another_lower_hex(num % 16);
+	}
 	return (counter);
 }
