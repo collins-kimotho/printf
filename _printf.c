@@ -12,7 +12,7 @@ int _printf(const char * const format, ...)
 		{"%i", _printf_integer}, {"%b", _printf_binary},
 		{"%u", _printf_unsigned}, {"%o", _printf_octal},
 		{"%x", _printf_lower_hex}, {"%X", _printf_upper_hex},
-		{"%S", printf_S)
+		{"%S", _printf_special_string}
 	};
 
 	va_list args;
