@@ -6,7 +6,7 @@
  */
 int _printf_pointer(va_list args)
 {
-	long int n;
+	/** long int n;
 	int i, counter;
 	void *p;
 	char *s = "(nil)";
@@ -24,5 +24,16 @@ int _printf_pointer(va_list args)
 	_putchar('0');
 	_putchar('x');
 	counter = _printf_another_lower_hex(n);
+	return (2 + counter); */
+
+	int num, counter;
+	void *ptr;
+
+	counter = 0;
+	ptr = va_arg(args, void *);
+	num = (unsigned long)ptr;
+	_putchar('0');
+	_putchar('x');
+	counter = _printf_another_lower_hex(num);
 	return (2 + counter);
 }
