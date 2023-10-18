@@ -16,7 +16,7 @@ int _printf(const char * const format, ...)
 	};
 
 	va_list args;
-	int i = 0, j, len = 0;
+	int i = 0, k, len = 0;
 
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
@@ -25,12 +25,12 @@ int _printf(const char * const format, ...)
 Loopthrough:
 	while (format[i] != '\0')
 	{
-		j = 10;
-		while (j >= 0)
+		k = 10;
+		while (k >= 0)
 		{
-			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
+			if (m[k].id[0] == format[i] && m[k].id[1] == format[i + 1])
 			{
-				len += m[j].f(args);
+				len += m[k].f(args);
 				i = i + 2;
 				goto Loopthrough;
 			}
