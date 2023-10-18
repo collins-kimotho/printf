@@ -20,6 +20,8 @@ int _printf_unsigned(va_list args);
 int _printf_octal(va_list args);
 int _printf_lower_hex(va_list args);
 int _printf_upper_hex(va_list args);
+int _printf_special_string(va_list args);
+int _printf_special_char_hex(unsigned int num);
 
 /**
  * struct format - match the conversion specifiers for printf
