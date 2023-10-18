@@ -34,7 +34,7 @@ Loopthrough:
 				i = i + 2;
 				goto Loopthrough;
 			}
-			j--;
+			k--;
 		}
 		_putchar(format[i]);
 		len++;
