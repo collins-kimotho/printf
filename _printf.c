@@ -31,8 +31,6 @@ Loopthrough:
 		{
 			if (m[k].id[0] == format[i] && m[k].id[1] == format[i + 1])
 			{
-				/* Check for flag characters and call hgandle_flag*/
-				handle_flags(&m[k], format, i);
 				len += m[k].f(args);
 				i = i + 2;
 				goto Loopthrough;
