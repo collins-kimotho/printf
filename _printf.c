@@ -7,12 +7,12 @@
 int _printf(const char * const format, ...)
 {
 	convert_match m[] = {
-		{"%s", _printf_string}, {"%c", _printf_char},
-		{"%%", _printf_percent}, {"%d", _printf_decimal},
-		{"%i", _printf_integer}, {"%b", _printf_binary},
-		{"%u", _printf_unsigned}, {"%o", _printf_octal},
-		{"%x", _printf_lower_hex}, {"%X", _printf_upper_hex},
-		{"%S", _printf_special_string}, {"%p", _printf_pointer}
+		{"%s", _printf_string, '\0'}, {"%c", _printf_char, '\0'},
+		{"%%", _printf_percent, '\0'}, {"%d", _printf_decimal, '\0'},
+		{"%i", _printf_integer, '\0'}, {"%b", _printf_binary, '\0'},
+		{"%u", _printf_unsigned, '\0'}, {"%o", _printf_octal, '\0'},
+		{"%x", _printf_lower_hex, '\0'}, {"%X", _printf_upper_hex, '\0'},
+		{"%S", _printf_special_string, '\0'}, {"%p", _printf_pointer, '\0'}
 	};
 
 	va_list args;
@@ -31,7 +31,7 @@ Loopthrough:
 			if (m[k].id[0] == format[i] && m[k].id[1] == format[i + 1])
 			{
 				/* Check for flag characters and call hgandle_flag*/
-				handle_flags(&m[k}, format, i);
+				handle_flags(&m[k], format, i);
 				len += m[k].f(args);
 				i = i + 2;
 				goto Loopthrough;

@@ -24,7 +24,6 @@ int _printf_special_string(va_list args);
 int _printf_special_char_hex(unsigned int num);
 int _printf_another_lower_hex(unsigned long int);
 int _printf_pointer(va_list args);
-void handle_flags(convert_match *m, const char *format, int i);
 
 /**
  * struct format - match the conversion specifiers for printf
@@ -39,4 +38,5 @@ typedef struct format
 	char flag;
 } convert_match;
 
+void handle_flags(convert_match *m, const char *format, int i);
 #endif

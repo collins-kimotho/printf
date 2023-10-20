@@ -8,7 +8,7 @@
  *
  * return: void
  */
-void handle_flags(convert_match *m, cont char *cformat, int i)
+void handle_flags(convert_match *m, const char *format, int i)
 {
 	if (format[i - 1] == '+')
 		m->flag = '+';
