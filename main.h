@@ -36,6 +36,8 @@ typedef struct format
 {
 	char *id;
 	int (*f)();
+	char flag;
 } convert_match;
 
+void handle_flags(convert_match *m, const char *format, int i);
 #endif
