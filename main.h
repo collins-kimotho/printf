@@ -22,8 +22,9 @@ int _printf_lower_hex(va_list args);
 int _printf_upper_hex(va_list args);
 int _printf_special_string(va_list args);
 int _printf_special_char_hex(unsigned int num);
-int _printf_another_lower_hex(unsigned long int);
 int _printf_pointer(va_list args);
+int _printf_another_lower_hex(unsigned long int);
+int _printf_reverse_string(va_list args);
 
 /**
  * struct format - match the conversion specifiers for printf
