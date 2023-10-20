@@ -10,7 +10,7 @@ int _printf(const char * const format, ...)
 		{"%s", _printf_string, '\0'}, {"%c", _printf_char, '\0'},
 		{"%%", _printf_percent, '\0'}, {"%d", _printf_decimal, '\0'},
 		{"%i", _printf_integer, '\0'}, {"%b", _printf_binary, '\0'},
-		{"%u", _printf_unsigned, '\0'}, {"%o", _printf_octal, '\0'},
+		{"%u", _printf_unsigned_int, '\0'}, {"%o", _printf_octal, '\0'},
 		{"%x", _printf_lower_hex, '\0'}, {"%X", _printf_upper_hex, '\0'},
 		{"%S", _printf_special_string, '\0'}, {"%p", _printf_pointer, '\0'}
 	};

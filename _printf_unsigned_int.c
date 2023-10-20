@@ -4,7 +4,7 @@
  * @args: argument to print
  * Return: number of characters printed
  */
-int _printf_unsigned(va_list args)
+int _printf_unsigned_int(va_list args)
 {
 	unsigned int n = va_arg(args, unsigned int);
 	int num, last = n % 10, digit, exp = 1, i = 1;

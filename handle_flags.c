@@ -1,7 +1,7 @@
 #include  "main.h"
 
 /**
- * handle_flags - Handles the f;ag chracters for non-custome conversion specifiers
+ * handle_flags - Handles flags
  * @m: pointer to the conver
  * @format: the format string
  * @i: the current index
